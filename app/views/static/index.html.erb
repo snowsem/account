@@ -5,6 +5,7 @@
     <div class="col-sm-3">
       <ul class="nav nav-pills nav-stacked">
 
+        <li><a href="#">Бонусный счёт</a></li>
         <li class="active"><a href="#">Профиль</a></li>
         <li><a href="#">Акции</a></li>
         <li><a href="#">Новинки</a></li>
@@ -12,30 +13,19 @@
         <li><a href="#">Отзывы</a></li>
         <li><a href="#">Задать вопрос</a></li>
         <li><a href="#">Вебинары</a></li>
-        <li><a href="#">Бонусный счёт</a></li>
+
         <li><a href="#">Информация</a></li>
 
       </ul>
     </div>
     <div class="col-sm-9">
-      <h4>USER NAME</h4>
+      <h4><%= current_user_full_name%></h4>
 
 
-      <div class="row">
-        <div class="col-md-3">Фамилия*:</div>
-        <div class="col-md-3"><p><%= current_user.family%></p></div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">Имя</div>
-        <div class="col-md-3"><p><%= current_user.name%></p></div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">Отчество</div>
-        <div class="col-md-3"><p><%= current_user.surename%></p></div>
-      </div>
+
       <div class="row">
         <div class="col-md-3">Телефон:</div>
-        <div class="col-md-3"><p></p></div>
+        <div class="col-md-3"><p>dd</p></div>
       </div>
       <div class="row">
         <div class="col-md-3">почта:</div>
@@ -49,6 +39,8 @@
         <div class="col-md-3">город*:</div>
         <div class="col-md-3"><p>Не известно</p></div>
       </div>
+
+      <%= link_to('Редактировать профиль', edit_user_registration_path) %>
 
     </div>
 

@@ -13,4 +13,8 @@ module ApplicationHelper
         flash_type.to_s
     end
   end
+
+  def current_user_full_name
+    return "#{current_user.family} #{current_user.name} #{current_user.surename}"
+  end
 end
