@@ -32,7 +32,7 @@
         <% if user_signed_in? %>
 
             <li class="dropdown">
-              <a class="navbar-brand-text dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/">Бонусы: <span class="text-info">0</span>
+              <a class="navbar-brand-text dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="/">Бонусы: <span class="text-info"><%= current_user.balance %></span>
 
               <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
