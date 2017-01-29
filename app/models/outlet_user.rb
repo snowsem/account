@@ -1,0 +1,2 @@
+class OutletUser < ApplicationRecord
+end

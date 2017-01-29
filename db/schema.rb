@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129135425) do
+ActiveRecord::Schema.define(version: 20170129205020) do
+
+  create_table "outlet_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "outlet_id"
+    t.integer  "user_id"
+    t.text     "comment",    limit: 65535
+    t.string   "position"
+  end
+
+  create_table "outlets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "full_name"
+    t.string   "name"
+    t.string   "address"
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -25,6 +42,9 @@ ActiveRecord::Schema.define(version: 20170129135425) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "surename"
+    t.string   "family"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

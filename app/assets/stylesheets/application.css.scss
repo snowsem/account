@@ -20,3 +20,34 @@
   border-top: 1px solid #eeeeee;
   margin-top: 100px;
 }
+.field_with_errors {
+  color: #d43f3a;
+
+}
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color:  #d43f3a;
+}
+}
+#error_explanation {
+  color: red;
+
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-alert {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
