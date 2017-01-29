@@ -1,0 +1,22 @@
+@import "bootstrap-sprockets";
+@import "bootstrap-custom";
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 4px;
+  width: auto;
+
+}
+.navbar-brand-text {
+  color: #000000 !important;
+}
+
+.footer {
+  padding-top: 10px;
+  color: #c8c8c8;
+  border-top: 1px solid #eeeeee;
+  margin-top: 100px;
+}
