@@ -4,11 +4,20 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
   validates :name, :presence=> true
   validates :family, :presence=> true
 
-attr_accessor
+  attr_accessor
+
+  def name=(val)
+    self[:name] = val.capitalize
+  end
+  def surename=(val)
+    self[:surename] = val.capitalize
+  end
+  def family=(val)
+    self[:family] = val.capitalize
+  end
 
   has_many :outlets, :through=>:outlet_users
 
