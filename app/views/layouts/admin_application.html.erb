@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ЛЭЗЕРТАЧ | <%= yield(:page_title) %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+
+
+  <%= csrf_meta_tags %>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+
+  <![endif]-->
+</head>
+<body>
+<%= render 'layouts/admin_navigation_bar' %>
+<%= render partial: "layouts/flash", flash: flash %>
+
+
+<%= yield %>
+<div class="footer text-center">
+  <a href=""></a> <a href="">Контакты</a> <a href="">Техническая поддержка</a><br>
+  1992 - <%= Time.now.year%> © ltex.ru 24 года вместе с вами
+</div>
+</body>
+</html>

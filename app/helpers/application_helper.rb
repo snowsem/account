@@ -1,4 +1,14 @@
 module ApplicationHelper
+
+  def auth_admin
+    if signed_in? && current_user.admin
+      true
+    else
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
   def bootstrap_class_for(flash_type)
     case flash_type
       when "success"

@@ -14,6 +14,13 @@ cancel_user_registration GET    /users/cancel(.:format)        devise/registrati
                          PUT    /users(.:format)               devise/registrations#update
                          DELETE /users(.:format)               devise/registrations#destroy
                          POST   /users(.:format)               devise/registrations#create
+              new_cities GET    /cities/new(.:format)          cities#new
+             edit_cities GET    /cities/edit(.:format)         cities#edit
+                  cities GET    /cities(.:format)              cities#show
+                         PATCH  /cities(.:format)              cities#update
+                         PUT    /cities(.:format)              cities#update
+                         DELETE /cities(.:format)              cities#destroy
+                         POST   /cities(.:format)              cities#create
                     root GET    /                              static#index
             static_index GET    /static/index(.:format)        static#index
             static_about GET    /static/about(.:format)        static#about

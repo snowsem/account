@@ -18,6 +18,10 @@ class User < ApplicationRecord
   def family=(val)
     self[:family] = val.capitalize
   end
+  def is_admin
+    return true if self.admin == 1 #The admin account type
+  end
+
 
   has_many :outlets, :through=>:outlet_users
 
