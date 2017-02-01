@@ -24,5 +24,6 @@ class User < ApplicationRecord
 
 
   has_many :outlets, :through=>:outlet_users
+  has_one :city
 
 end

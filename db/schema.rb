@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170130160246) do
     t.string   "surename"
     t.string   "family"
     t.integer  "balance",                default: 0,     null: false
-    t.string   "city"
+    t.string   "city_id"
     t.boolean  "admin",                  default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
