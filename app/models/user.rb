@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, :presence=> true
+
   validates :family, :presence=> true
 
   #before_create :set_not_active
@@ -26,7 +27,9 @@ class User < ApplicationRecord
 
 
 
-  has_many :outlets, :through=>:outlet_users
+  has_many :issues
+  has_many :outlet_users
+  has_many :outlets, :through => :outlet_users
   has_one :city
 
 end

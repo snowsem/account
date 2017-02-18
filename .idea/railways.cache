@@ -1,4 +1,13 @@
                   Prefix Verb   URI Pattern                    Controller#Action
+           balance_index GET    /balance/index(.:format)       balance#index
+          balance_create GET    /balance/create(.:format)      balance#create
+             balance_new GET    /balance/new(.:format)         balance#new
+        admin_client_new GET    /admin/client/new(.:format)    admin/client#new
+       admin_client_show GET    /admin/client/show(.:format)   admin/client#show
+     admin_client_create GET    /admin/client/create(.:format) admin/client#create
+     admin_client_update GET    /admin/client/update(.:format) admin/client#update
+       admin_client_edit GET    /admin/client/edit(.:format)   admin/client#edit
+      admin_client_index GET    /admin/client/index(.:format)  admin/client#index
         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
             user_session POST   /users/sign_in(.:format)       devise/sessions#create
     destroy_user_session DELETE /users/sign_out(.:format)      devise/sessions#destroy
@@ -14,6 +23,10 @@ cancel_user_registration GET    /users/cancel(.:format)        devise/registrati
                          PUT    /users(.:format)               devise/registrations#update
                          DELETE /users(.:format)               devise/registrations#destroy
                          POST   /users(.:format)               devise/registrations#create
+                    root GET    /                              static#index
+            static_index GET    /static/index(.:format)        static#index
+            static_about GET    /static/about(.:format)        static#about
+          static_contact GET    /static/contact(.:format)      static#contact
               new_cities GET    /cities/new(.:format)          cities#new
              edit_cities GET    /cities/edit(.:format)         cities#edit
                   cities GET    /cities(.:format)              cities#show
@@ -21,7 +34,5 @@ cancel_user_registration GET    /users/cancel(.:format)        devise/registrati
                          PUT    /cities(.:format)              cities#update
                          DELETE /cities(.:format)              cities#destroy
                          POST   /cities(.:format)              cities#create
-                    root GET    /                              static#index
-            static_index GET    /static/index(.:format)        static#index
-            static_about GET    /static/about(.:format)        static#about
-          static_contact GET    /static/contact(.:format)      static#contact
+              admin_root GET    /admin(.:format)               admin/static#index
+           admin_clients GET    /admin/clients(.:format)       admin/client#index

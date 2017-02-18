@@ -1,0 +1,51 @@
+<% provide(:page_title, 'Точка продажи') %>
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="nav nav-pills nav-stacked">
+
+        <li><a href="/">Назад</a></li>
+
+      </ul>
+
+    </div>
+    <div class="col-sm-6">
+      <h3>Добавить точку продаж</h3>
+
+      <%= form_for @outlet, :html => {:multipart => true}, :url => outlet_create_path do |f| %>
+          <% if @outlet.errors.any? %>
+              <div class="alert alert-warning">
+                <% @outlet.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label 'Наименование компании' %>
+            <%= f.text_field :name, class: 'form-control'%>
+          </div>
+          <div class="field">
+            <%= f.label 'Полное наименование компании' %>
+            <%= f.text_area :full_name, class: 'form-control'%>
+          </div>
+          <div class="field">
+            <%= f.label 'Город' %>
+            <%= f.text_field :city, class: 'form-control'%>
+          </div>
+          <div class="field">
+            <%= f.label 'Адрес' %>
+            <%= f.text_area :address, class: 'form-control'%>
+          </div>
+          <br>
+
+
+          <p><%= f.submit "Создать",  :class => "btn btn-primary" %></p>
+      <% end %>
+
+
+  </div>
+</div>
+</div>
+

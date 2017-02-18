@@ -1,0 +1,86 @@
+<% provide(:page_title, 'Добро пожаловать!') %>
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="nav nav-pills nav-stacked">
+
+        <li class="active"><a href="/balance">Бонусный счёт</a></li>
+        <li><a href="/">Профиль</a></li>
+        <li><a href="#">Акции</a></li>
+        <li><a href="#">Новинки</a></li>
+        <li><a href="#">Заказать образцы</a></li>
+        <li><a href="#">Отзывы</a></li>
+        <li><a href="#">Задать вопрос</a></li>
+        <li><a href="#">Вебинары</a></li>
+
+        <li><a href="#">Информация</a></li>
+
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <h3>Ваш баланс: <span class="text-info"><%= current_user.balance%></span></h3>
+
+
+
+
+
+      <%= link_to('Пополнить счет', edit_user_registration_path, :class => "btn btn-default", :role=>"button") %>
+      <%= link_to('Обменять', edit_user_registration_path, :class => "btn btn-default", :role=>"button") %>
+
+      <h3>Движение баланса</h3>
+      <%= link_to('Полная история', edit_user_registration_path, :class => "", :role=>"") %>
+      <br>
+
+      <table class="table table-condensed small table-bordered table-hover" >
+        <thead>
+        <tr>
+          <th>Код</th>
+          <th>Операция</th>
+          <th>Сумма</th>
+          <th>Статус</th>
+          <th>Дата</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+
+
+
+            <tr class="bg-warning">
+              <td>122</td>
+              <td>Добавить </td>
+              <td>456</td>
+              <td>Ожидает подтверждения</td>
+              <td>26/02/17</td>
+
+            </tr>
+            <tr class="bg-danger">
+              <td>126</td>
+              <td>Добавить</td>
+              <td>45</td>
+              <td>Отклонена</td>
+              <td>02/02/17</td>
+
+            </tr>
+            <tr class="bg-success">
+              <td>128</td>
+              <td>Потратить</td>
+              <td>776</td>
+              <td>Подтвержден</td>
+              <td>22/02/17</td>
+
+            </tr>
+
+
+
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+</div>
+</div>
+

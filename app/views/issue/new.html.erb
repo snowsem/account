@@ -1,0 +1,50 @@
+<% provide(:page_title, 'Точка продажи') %>
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="nav nav-pills nav-stacked">
+
+        <li><a href="/">Назад</a></li>
+
+      </ul>
+
+    </div>
+    <div class="col-sm-6">
+      <h3>Задать вопрос</h3>
+
+      <%= form_for @issue, :html => {:multipart => true}, :url => issue_create_path do |f| %>
+          <% if @issue.errors.any? %>
+              <div class="alert alert-warning">
+                <% @issue.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label 'Тема вопроса' %>
+            <%= f.text_field :title, class: 'form-control'%>
+          </div>
+
+          <div class="field">
+            <%= f.label 'Точка продаж' %><br>
+            <%= f.select :outlet_id, options_for_select(current_user.outlets.map{ |c| [c.name, c.id, ] }) %>
+          </div>
+          <div class="field">
+
+            <%= f.label 'Вопрос' %>
+            <%= f.text_area :text, class: 'form-control'%>
+          </div>
+
+          <br>
+
+
+          <p><%= f.submit "Создать",  :class => "btn btn-primary" %></p>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+

@@ -1,5 +1,41 @@
 Rails.application.routes.draw do
 
+  get 'issue_comment/index'
+
+  get 'issue_comment/edit'
+
+  get 'issue_comment/create'
+
+  get 'issue_comment/add'
+
+  get 'issue/index'
+
+  get 'issue/create'
+
+  get 'issue/new'
+
+  get 'issue/edit'
+
+  get 'outlet/index'
+
+  get 'outlet/new'
+
+
+  post 'outlet/create'
+
+  get 'outlet/destroy'
+
+  get 'outlet/edit'
+
+  get 'balance/index'
+  get 'balance', to: 'balance#index'
+  get 'issues', to: 'issue#index'
+  post 'issue/create', to: 'issue#create'
+
+  get 'balance/create'
+
+  get 'balance/new'
+
   namespace :admin do
     get 'client/new'
   end

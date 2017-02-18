@@ -51,3 +51,27 @@
   color: #b94a48;
   text-align: left;
 }
+
+ul.issues {
+  list-style: none;
+  padding: 0;
+
+
+}
+
+ul.issues li {
+  padding: 15px;
+  border: 1px solid #eeeeee;
+  font-size: 13px;
+
+}
+ul.issues li .date{
+  color: #777777;
+
+}
+ul.issues li .comments{
+  color: #777777;
+
+}
+
+

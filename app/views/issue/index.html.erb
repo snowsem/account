@@ -1,0 +1,46 @@
+<% provide(:page_title, 'Добро пожаловать!') %>
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="nav nav-pills nav-stacked">
+
+        <li><a href="/balance">Бонусный счёт</a></li>
+        <li><a href="/">Профиль</a></li>
+        <li><a href="#">Акции</a></li>
+        <li><a href="#">Новинки</a></li>
+        <li><a href="#">Заказать образцы</a></li>
+        <li><a href="#">Отзывы</a></li>
+        <li class="active"><a href="/issues">Задать вопрос</a></li>
+        <li><a href="#">Вебинары</a></li>
+
+        <li><a href="#">Информация</a></li>
+
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <h4>Мои вопросы</h4>
+      <%= link_to('Задать вопрос', issue_new_path, :class => "btn btn-default btn-sm", :role=>"button") %>
+
+
+
+      <ul class="issues">
+        <%current_user.issues.each do |issue|%>
+        <li>
+          <span class="date">Дата: <%=issue.created_at%></span>
+          <span class="comments">Комментарии (3)</span>
+          Статус: <span class="text-success"><%=issue.status%></span>
+          <span class="pull-right text-info"> <%=issue.outlet.try(:name || "") %></span>
+
+          <h5><a href="issue/<%=issue.id%>"><%=issue.title%></a></h5>
+        </li>
+
+      <%end%>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+</div>
+
