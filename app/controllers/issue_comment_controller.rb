@@ -8,6 +8,5 @@ class IssueCommentController < ApplicationController
   def create
   end
 
-  def add
+
   end
-end

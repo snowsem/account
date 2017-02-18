@@ -26,4 +26,25 @@ class IssueController < ApplicationController
 
   def edit
   end
+
+
+  def show
+    @issue_comment = IssueComment.new(:issue_id => params[:id], :user_id => current_user.id)
+    @issue = Issue.find(params[:id])
+  end
+  def add
+    params.permit!
+    @issue_comment = IssueComment.new(params[:issue_comment])
+    @issue_comment.user_id = current_user.id
+
+    if @issue_comment.save
+      flash[:success] = "Ответ добавлен! "
+      redirect_to "/issue/"+params[:issue_comment][:issue_id].to_s
+    else
+      flash[:error] = @issue_comment.errors.full_messages
+      @issue = Issue.find(params[:issue_comment][:issue_id])
+
+      render "issue/show"
+    end
+  end
 end

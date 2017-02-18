@@ -28,8 +28,8 @@
         <%current_user.issues.each do |issue|%>
         <li>
           <span class="date">Дата: <%=issue.created_at%></span>
-          <span class="comments">Комментарии (3)</span>
-          Статус: <span class="text-success"><%=issue.status%></span>
+          <span class="comments">Комментарии (<%= issue.issue_comments.count %>)</span>
+          Статус: <span class="<%=issue.issue_status.try(:color || "") %>"><%=issue.issue_status.try(:name || "") %></span>
           <span class="pull-right text-info"> <%=issue.outlet.try(:name || "") %></span>
 
           <h5><a href="issue/<%=issue.id%>"><%=issue.title%></a></h5>

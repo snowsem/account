@@ -30,7 +30,9 @@ Rails.application.routes.draw do
   get 'balance/index'
   get 'balance', to: 'balance#index'
   get 'issues', to: 'issue#index'
+  get 'issue/:id', to: 'issue#show'
   post 'issue/create', to: 'issue#create'
+  post 'issue/add', to: 'issue#add'
 
   get 'balance/create'
 
