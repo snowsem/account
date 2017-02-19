@@ -1,0 +1,33 @@
+<% provide(:page_title, 'Добро пожаловать!') %>
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-3">
+      <%= render 'layouts/nav_pill' %>
+    </div>
+    <div class="col-sm-9">
+      <h4>Мои заявки на образцы</h4>
+      <%= link_to('Оставить заявку', sample_new_path, :class => "btn btn-default btn-sm", :role=>"button") %>
+
+
+
+      <ul class="issues">
+        <%current_user.samples.each do |c|%>
+            <li>
+              <span class="date">Дата: <%=c.created_at%></span>
+
+              <span class="pull-right text-info"> <%=c.outlet.try(:name || "") %></span>
+              Статус: <span class="<%=c.sample_status.try(:color || "") %>"><%=c.sample_status.try(:name || "") %></span>
+
+              <p><%=c.text%></p>
+            </li>
+
+        <%end%>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+</div>
+

@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations'
+
+  }
+
+
+  get 'sample/index'
+
+  get 'sample/create'
+
+  get 'sample/new'
+
   get 'issue_comment/index'
 
   get 'issue_comment/edit'
@@ -31,6 +44,13 @@ Rails.application.routes.draw do
   get 'balance', to: 'balance#index'
   get 'issues', to: 'issue#index'
   get 'issue/:id', to: 'issue#show'
+  get 'comments', to: 'comment#index'
+  get 'comment/new'
+  get 'comment/create'
+  post 'comment/create', to: 'comment#create'
+  get 'samples', to: 'sample#index'
+  post 'sample/create', to: 'sample#create'
+
   post 'issue/create', to: 'issue#create'
   post 'issue/add', to: 'issue#add'
 
@@ -62,7 +82,7 @@ Rails.application.routes.draw do
     get 'client/index'
   end
 
-  devise_for :users
+
 
   root 'static#index'
 

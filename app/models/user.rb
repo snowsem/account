@@ -28,6 +28,8 @@ class User < ApplicationRecord
 
 
   has_many :issues
+  has_many :comments
+  has_many :samples
   has_many :outlet_users
   has_many :outlets, :through => :outlet_users
   has_one :city

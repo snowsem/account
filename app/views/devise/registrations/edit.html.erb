@@ -1,9 +1,13 @@
 <% provide(:page_title, 'Редактировать профиль') %>
 <div class="container">
   <div class="row">
+    <div class="col-md-2">
+      <ul class="nav nav-pills nav-stacked">
+        <li><%= link_to "Назад", :back, :class => "bg-info" %></li>
+      </ul>
+    </div>
     <div class="col-md-4">
-      <h2>Редактровать профиль</h2>
-
+      <h3>Редактровать профиль</h3>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
           <%= devise_error_messages! %>
 
@@ -50,8 +54,9 @@
           <div class="actions">
             <%= f.submit "Обновить информацию", :class => "btn btn-primary" %>
           </div>
-          <br>
-          <br>
+          </div>
+          <div class="col-md-4">
+
           <h3>Изменить пароль</h3>
           <div class="field">
             <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br/>
@@ -70,15 +75,12 @@
           <br>
 
           <div class="actions">
-            <%= f.submit "Обновить информацию", :class => "btn btn-primary" %>
+            <%= f.submit "Изменить пароль", :class => "btn btn-primary" %>
           </div>
       <% end %>
 
-      <h3>Cancel my account</h3>
 
-      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete %></p>
 
-      <%= link_to "Back", :back %>
     </div>
   </div>
 </div>

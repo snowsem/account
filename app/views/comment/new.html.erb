@@ -11,21 +11,17 @@
 
     </div>
     <div class="col-sm-6">
-      <h3>Задать вопрос</h3>
+      <h3>Оставить отзыв</h3>
 
-      <%= form_for @issue, :html => {:multipart => true}, :url => issue_create_path do |f| %>
-          <% if @issue.errors.any? %>
+      <%= form_for @comment, :html => {:multipart => true}, :url => comment_create_path do |f| %>
+          <% if @comment.errors.any? %>
               <div class="alert alert-warning">
-                <% @issue.errors.full_messages.each do |message| %>
+                <% @comment.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
                 <% end %>
               </div>
           <% end %>
 
-          <div class="field">
-            <%= f.label 'Тема вопроса' %>
-            <%= f.text_field :title, class: 'form-control'%>
-          </div>
 
           <div class="field">
             <%= f.label 'Точка продаж' %><br>
@@ -33,7 +29,7 @@
           </div>
           <div class="field">
 
-            <%= f.label 'Вопрос' %>
+            <%= f.label 'Отзыв' %>
             <%= f.text_area :text, class: 'form-control'%>
           </div>
 

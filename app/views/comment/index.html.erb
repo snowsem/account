@@ -1,0 +1,32 @@
+<% provide(:page_title, 'Добро пожаловать!') %>
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-3">
+      <%= render 'layouts/nav_pill' %>
+    </div>
+    <div class="col-sm-9">
+      <h4>Мои отзывы</h4>
+      <%= link_to('Оставить отзыв', comment_new_path, :class => "btn btn-default btn-sm", :role=>"button") %>
+
+
+
+      <ul class="issues">
+        <%current_user.comments.each do |c|%>
+        <li>
+          <span class="date">Дата: <%=c.created_at%></span>
+
+          <span class="pull-right text-info"> <%=c.outlet.try(:name || "") %></span>
+
+          <p><%=c.text%></p>
+        </li>
+
+      <%end%>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+</div>
+

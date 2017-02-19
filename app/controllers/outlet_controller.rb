@@ -21,7 +21,7 @@ class OutletController < ApplicationController
       flash[:success] = "Точка продаж добавлена!"
       redirect_to "/"
     else
-      flash[:error] = @outlet.errors.full_messages
+      #flash[:error] = @outlet.errors.full_messages
       render 'new'
     end
   end

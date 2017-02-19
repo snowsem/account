@@ -1,0 +1,80 @@
+<% provide(:page_title, 'Добро пожаловать!') %>
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="nav nav-pills nav-stacked">
+
+        <li><a href="/balance">Бонусный счёт</a></li>
+        <li><a href="/">Профиль</a></li>
+        <li><a href="#">Акции</a></li>
+        <li><a href="#">Новинки</a></li>
+        <li><a href="#">Заказать образцы</a></li>
+        <li><a href="#">Отзывы</a></li>
+        <li class="active"><a href="/issues">Задать вопрос</a></li>
+        <li><a href="#">Вебинары</a></li>
+
+        <li><a href="#">Информация</a></li>
+
+      </ul>
+    </div>
+    <div class="col-sm-9">
+
+
+      <ul class="issues">
+
+        <li>
+          <span class="date">Дата: <%= @issue.created_at %></span>
+          <span class="comments">Комментарии (3)</span>
+          Статус:
+          <span class="<%= @issue.issue_status.try(:color || "") %>"><%= @issue.issue_status.try(:name || "") %></span>
+          <span class="pull-right text-info"> <%= @issue.outlet.try(:name || "") %></span>
+
+          <h4><%= @issue.title %></h4>
+          <p><%= @issue.text %></p>
+          <h5>Комментарии</h5>
+          <ul class="issues">
+            <% @issue.issue_comments.each do |c| %>
+
+                <li>
+                  <span class="date">Дата: <%= c.created_at %></span>
+                  <span class="comments">
+                <%= c.user.try(:email || "") %></span>
+                  <p><%= c.text %></p>
+                </li>
+            <% end %>
+
+            <li>
+              <%= form_for @issue_comment, :html => {:multipart => true}, :url => issue_add_path do |f| %>
+
+                      <div class="field">
+
+                        <%= f.label 'Ответ' %>
+                        <%= f.text_area :text, class: 'form-control' %>
+                        <%= f.hidden_field :issue_id, :input_html => {:value => @issue.id} %>
+                      </div>
+
+
+
+
+              <br>
+
+
+              <p><%= f.submit "Создать", :class => "btn btn-primary" %></p>
+
+
+              <% end %>
+      </li>
+
+      </ul>
+      </li>
+
+      </ul>
+
+
+      </div>
+
+</div>
+</div>
+</div>
+

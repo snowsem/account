@@ -3,22 +3,9 @@
 
   <div class="row">
     <div class="col-sm-3">
-      <ul class="nav nav-pills nav-stacked">
-
-        <li><a href="/balance">Бонусный счёт</a></li>
-        <li class="active"><a href="#">Профиль</a></li>
-        <li><a href="#">Акции</a></li>
-        <li><a href="#">Новинки</a></li>
-        <li><a href="#">Заказать образцы</a></li>
-        <li><a href="#">Отзывы</a></li>
-        <li><a href="/issues">Задать вопрос</a></li>
-        <li><a href="#">Вебинары</a></li>
-
-        <li><a href="#">Информация</a></li>
-
-      </ul>
+      <%= render 'layouts/nav_pill' %>
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-6">
       <h4><%= current_user_full_name%></h4>
 
       <div class="row">
@@ -65,6 +52,47 @@
       </div>
 
 
+
+    </div>
+    <div class="col-sm-3">
+
+
+  <% unless current_user.telephone.present?%>
+      <div class="panel panel-warning">
+        <div class="panel-body">
+          Необходимо заполнить поле "Телефон"
+        </div>
+      </div>
+      <%end%>
+      <% unless current_user.company.present?%>
+          <div class="panel panel-warning">
+            <div class="panel-body">
+              Необходимо заполнить поле "Компания"
+            </div>
+          </div>
+      <%end%>
+      <% unless current_user.city_id%>
+          <div class="panel panel-warning">
+            <div class="panel-body">
+              Необходимо заполнить поле "Город"
+            </div>
+          </div>
+      <%end%>
+
+      <% unless current_user.address.present?%>
+          <div class="panel panel-warning">
+            <div class="panel-body">
+              Необходимо заполнить поле "Адрес"
+            </div>
+          </div>
+      <%end%>
+      <% if current_user.outlets.count == 0 %>
+          <div class="panel panel-warning">
+            <div class="panel-body">
+              Необходимо добавить точки продаж
+            </div>
+          </div>
+      <%end%>
 
     </div>
 

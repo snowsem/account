@@ -20,4 +20,30 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      sample:
+        text: "Текст"
+      comment:
+        text: "Текст"
+      outlet:
+        name: "Наименование"
+      issue:
+        text: "Текст аопроса"
+        title: "Тема вопроса"
+      issue_comment:
+        text: "Ответ"
+
+    errors:
+      messages:
+        blank: "не может быть пустым"
+      models:
+        sample:
+          attributes:
+            text:
+              blank: "не может быть пустым"
+
+        user:
+          attributes:
+            email:
+              blank: "is required"

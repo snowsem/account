@@ -1,0 +1,2 @@
+class SampleStatus < ApplicationRecord
+end

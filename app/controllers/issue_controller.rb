@@ -16,10 +16,10 @@ class IssueController < ApplicationController
 
 
     if @user.save
-      flash[:success] = "Вопрос добавлен!"
+      flash[:success] = "Спасибо за Ваш вопрос! Мы ответим на него в ближайшее время!"
       redirect_to "/issues"
     else
-      flash[:error] = @issue.errors.full_messages
+      #flash[:error] = @issue.errors.full_messages
       render 'new'
     end
   end
@@ -41,7 +41,7 @@ class IssueController < ApplicationController
       flash[:success] = "Ответ добавлен! "
       redirect_to "/issue/"+params[:issue_comment][:issue_id].to_s
     else
-      flash[:error] = @issue_comment.errors.full_messages
+     # flash[:error] = @issue_comment.errors.full_messages
       @issue = Issue.find(params[:issue_comment][:issue_id])
 
       render "issue/show"
